@@ -7,6 +7,7 @@ export interface User {
 
 export interface Task {
   id: string;
+  _id: string;
   title: string;
   description: string;
   status: 'pending' | 'completed';
@@ -15,9 +16,9 @@ export interface Task {
 }
 
 export interface TaskStats {
-  totalTasks: number;
-  completedTasks: number;
-  pendingTasks: number;
+  total: number;             
+  completed: number;        
+  pending: number;        
   completionPercentage: number;
 }
 

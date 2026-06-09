@@ -26,7 +26,7 @@ export default function Dashboard() {
     queryKey: ['task-stats'],
     queryFn: async () => {
       const res = await api.get('/tasks/stats');
-      return res.data as TaskStats;
+     return res.data.data as TaskStats;
     },
     enabled: !!Cookies.get('accessToken'),   // Only fetch if token exists
     retry: 1,
@@ -61,7 +61,7 @@ export default function Dashboard() {
               <CardTitle className="text-sm font-medium text-gray-500">Total Tasks</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-4xl font-bold">{stats?.totalTasks || 0}</p>
+<p className="text-4xl font-bold">{stats?.total || 0}</p>
             </CardContent>
           </Card>
 
@@ -70,7 +70,7 @@ export default function Dashboard() {
               <CardTitle className="text-sm font-medium text-green-600">Completed</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-4xl font-bold text-green-600">{stats?.completedTasks || 0}</p>
+              <p className="text-4xl font-bold text-green-600">{stats?.completed  || 0}</p>
             </CardContent>
           </Card>
 
@@ -79,7 +79,7 @@ export default function Dashboard() {
               <CardTitle className="text-sm font-medium text-orange-600">Pending</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-4xl font-bold text-orange-600">{stats?.pendingTasks || 0}</p>
+              <p className="text-4xl font-bold text-orange-600">{stats?.pending || 0}</p>
             </CardContent>
           </Card>
 
